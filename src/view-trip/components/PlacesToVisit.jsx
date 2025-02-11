@@ -1,25 +1,33 @@
-import React from 'react'
-import PlaceCardItem from './PlaceCardItem';
+import React from "react";
+import PlaceCardItem from "./PlaceCardItem";
 
 function PlacesToVisit({ trip }) {
-    return (
-      <div>
-        <h2 className="font-bold text-lg">Places to visit</h2>
-        <div className='mt-5'>
-            <div className="grid md:grid-cols-2 gap-5">
-            {trip.tripData?.itinerary?.day1?.activities?.map((place, index)=>(
-                <div className="">
-                    <h2 className='font-medium'>{place.placeName}</h2>
-                    <div className="">
-                        <h2 className='font-medium text-sm text-orange-600' >{place.placeDetails}</h2>
+  
+  return (
+    <div>
+      <h2 className="font-bold text-lg">Places to visit</h2>
+      <div className="mt-5">
+        <div className="grid md:grid-cols-2 gap-5">
+          {trip.tripData?.itinerary &&
+            Object.keys(trip.tripData.itinerary).sort((a, b) => Number(a.match(/\d+/)) - Number(b.match(/\d+/))).map((dayKey) => (
+              <div className="font-bold text-lg" key={dayKey}> {dayKey}
+
+                {trip.tripData.itinerary[dayKey].activities?.map(
+                  (place, index) => (
+                    <div key={index}>
+
+                      <div className="">
                         <PlaceCardItem place={place} />
+                      </div>
                     </div>
-                </div>
+                  )
+                )}
+              </div>
             ))}
-            </div>
         </div>
       </div>
-    );
-  }
-  
-  export default PlacesToVisit;
+    </div>
+  );
+}
+
+export default PlacesToVisit;

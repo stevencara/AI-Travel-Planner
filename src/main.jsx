@@ -8,6 +8,7 @@ import Header from './components/custom/Header';
 import { Toaster } from 'sonner';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Viewtrip from './view-trip/[tripId]';
+import MyTrips from './my-trips';
 
 const root = document.getElementById("root");
 
@@ -20,6 +21,7 @@ ReactDOM.createRoot(root).render(
         <Route path="/" element={<App />}/>
         <Route path="/create-trip" element={<CreateTrip />}/>
         <Route path="/view-trip/:tripId" element={<Viewtrip/>}/>
+        <Route path="/my-trips" element={<MyTrips/>}/>
       </Routes>
     </GoogleOAuthProvider>
   </BrowserRouter>

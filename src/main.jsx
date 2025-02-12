@@ -2,7 +2,7 @@ import './index.css';
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
-import App from "./app";
+import App from "./App";
 import CreateTrip from './create-trip';
 import Header from './components/custom/Header';
 import { Toaster } from 'sonner';
